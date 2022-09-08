@@ -1,4 +1,5 @@
 const choices = ["rock", "paper", "scissors"] ;
+
 function getComputerChoice(){
     randomChoice = Math.floor(Math.random() * choices.length);
     return (choices[randomChoice]);
@@ -55,12 +56,10 @@ function playARound(playerSelection, computerSelection) {
     return(`You ${result} ! ${winnerSelection} beats ${loserSelection}`);
 }
 
-const playerSelection = getPlayerChoice();
-const computerSelection = getComputerChoice();
-
-function game(){
+function game(numberOfRound){
     let result = "";
-    for (let i=0; i<5; i++){
+    numberOfRound=Number(prompt("How many rounds would you like to play ?"));
+    for (let i=0; i<numberOfRound; i++){
         result = result + `Game ${i} : ${playARound(getPlayerChoice(), getComputerChoice())}` + "\n";
     }
     return (result);
