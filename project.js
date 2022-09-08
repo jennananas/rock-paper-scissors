@@ -12,8 +12,6 @@ function getPlayerChoice(){
     return(playerChoice);
 }
 
-
-
 function playARound(playerSelection, computerSelection) {
     let result, winnerSelection, loserSelection = "" ;
     if (playerSelection==computerSelection){
@@ -59,3 +57,12 @@ function playARound(playerSelection, computerSelection) {
 
 const playerSelection = getPlayerChoice();
 const computerSelection = getComputerChoice();
+
+function game(){
+    let result = "";
+    for (let i=0; i<5; i++){
+        result = result + `Game ${i} : ${playARound(getPlayerChoice(), getComputerChoice())}` + "\n";
+    }
+    return (result);
+}
+console.log(game());
