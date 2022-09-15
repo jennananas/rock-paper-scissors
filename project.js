@@ -1,6 +1,6 @@
 const choices = ["rock", "paper", "scissors"] ;
 const buttons = document.querySelectorAll("input");
-let resultText = document.querySelector("#result");
+let resultText = document.querySelector(".result");
 let roundNb = playerScore = computerScore = 0;
 
 
@@ -20,19 +20,19 @@ function stopGame(){
 /* Joue un round selon le choix du joueur, retourne les scores et le vainqueur à l'issue des 5 rounds */
 function playRound(playerSelection) {
     let computerSelection = getComputerChoice();
-    let result, winnerSelection, loserSelection;
+    let result, winner, winnerSelection, loserSelection;
     result, winnerSelection = loserSelection = "";
     if (playerSelection==computerSelection){
-        return ("it's a tie !");
+        return ("It's a tie !");
     } else if (playerSelection=="paper"){
         if (computerSelection=="rock") {
-            result = "win";
+            winner = "YOU";
             playerScore+= 1;
             winnerSelection=playerSelection;
             loserSelection = computerSelection;
         }
         else {
-            result = "lose";
+            winner = "COMPUTER";
             computerScore+= 1;
             loserSelection = playerSelection;
             winnerSelection=computerSelection;}
@@ -40,27 +40,27 @@ function playRound(playerSelection) {
     } 
     else if (playerSelection=="rock"){
         if (computerSelection=="scissors"){
-            result = "win";
+            winner = "YOU";
             playerScore +=1;
             winnerSelection=playerSelection;
             loserSelection = computerSelection;
         }
         else 
         {
-            result = "lose";
+            winner = "COMPUTER";
             computerScore+= 1;
             loserSelection = playerSelection;
             winnerSelection=computerSelection;}
     }
     else if (playerSelection=="scissors"){
         if (computerSelection=="paper"){
-            result = "win";
+            winner = "YOU";
             playerScore +=1;
             loserSelection = computerSelection;
             winnerSelection=playerSelection;
         } else 
         {
-            result ="lose";
+            winner = "COMPUTER";
             computerScore+= 1;
             loserSelection = playerSelection;
             winnerSelection=computerSelection;
@@ -69,21 +69,13 @@ function playRound(playerSelection) {
 
     roundNb++;
 
-    if (playerScore === 5) {
-        winner = "YOU"; 
-    } else {
-        winner = "COMPUTER"; 
-    }
-
-    resultText.innerHTML = `Round ${roundNb}<br>
-    choix joueur : ${playerSelection}<br>
-    choix ordi : ${computerSelection}<br>
-    score joueur : ${playerScore}<br>
-    score ordi : ${computerScore}`
+    resultText.innerHTML = `<div class="round">Round ${roundNb}</div>
+    <div class="game">You played ${playerSelection} VS ${computerSelection}. ${winner} wins this round !</div>
+    <div class="score"><div>YOU : ${playerScore}</div><div>COMPUTER : ${computerScore}</div></div>`
 
     if (playerScore === 5 || computerScore === 5) {
         stopGame();
-        resultText.innerHTML = `${winner} win ! Final score : ${playerScore}-${computerScore}`
+        resultText.innerHTML = `<div class="score">${winner} won ! Final score : ${playerScore}-${computerScore}</div>`
     }
    
     return resultText;
@@ -92,5 +84,5 @@ function playRound(playerSelection) {
 
 /* Déclenche le round à chaque clic */
 buttons.forEach((button) => button.addEventListener("click", () => {
-    playRound(button.value);
+    playRound(button.id);
 }))

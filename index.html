@@ -5,15 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="project.js" defer></script>
+    <link rel="stylesheet" href="./style.css">
     <title>Project Rock Paper Scissors</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Roboto:wght@400;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div>
-        <input type="button" value="rock">
-        <input type="button" value="paper">
-        <input type="button" value="scissors">
+    <header>
+        <h1>ROCK PAPER SCISSORS</h1>
+        <div class="rules">
+            <p>Rock <span style="font-style:italic">beats</span> Scissors</p>
+            <p>Scissors <span style="font-style:italic">beats</span> Paper</p>
+            <p>Paper <span style="font-style:italic">beats</span> Rock</p>
+        </div>
+        <h2>BO5, let's play !</h2>
+    </header>
+    <div class="content">
+        <div id="choices">
+            <input type="image" src="./img/pierre.png" id="rock">
+            <input type="image" src="./img/papier.png" id="paper">
+            <input type="image" src="./img/ciseaux.png" id="scissors">
+        </div>
+        <div class="result">
+            <div class="round">Round 0</div>
+            <div class="game">Choose your weapon</div>
+            <div class="score">
+                <div>YOU : 0</div>
+                <div>COMPUTER : 0</div>
+            </div>
+        </div>
     </div>
-    <div id="result"></div>
+    <footer>
+
+    </footer>
     
     
 </body>

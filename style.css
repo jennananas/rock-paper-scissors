@@ -1,0 +1,58 @@
+body {
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    padding : 0;
+    margin : 0;
+}
+
+header {
+    display : flex;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 50px;
+    background-color: rgb(198, 218, 232);
+}
+
+.rules {
+    display : flex;
+    justify-content: space-evenly;
+    font-style: italic;
+
+}
+
+
+.content{
+    margin : 20px
+}
+
+#choices {
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    gap : 100px;
+    margin-bottom: 50px;
+}
+
+input {
+    height: auto;
+    width: 10%;
+}
+
+.result {
+    display : flex;
+    border: 1px solid;
+    justify-content: space-evenly;
+    margin : 0;
+    padding : 0;
+
+}
+
+.round, .game, .score {
+    display: flex;
+    padding :20px 50px;
+    gap : 30px;
+}
+
+.round, .game {
+    border-right: 1px solid;
+}
